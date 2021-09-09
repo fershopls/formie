@@ -1,5 +1,9 @@
 # Requirements
+Formie was designed to be easily integrated with `Laravel v8 + Jetstream + Inertia (vue3)` 
+
 - Tailwind.css
+- Inertia.js
+
 
 # Installation
 Install with npm
@@ -13,6 +17,7 @@ import { Formie, inputs } from "@ferchoposting/formie";
 ```
 
 Add components to tailwind purge components
+otherwise the css of components won't load.
 ### tailwind.config.js
 ```js
 {
