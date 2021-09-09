@@ -1,7 +1,8 @@
 {
-  "name": "formie",
+  "private": false,
+  "name": "@ferchoposting/formie",
   "version": "1.0.0",
-  "description": "Create forms with Vue easily, extensively and funny!",
+  "description": "Create forms with Vue 3 easily, extensively and with fun!",
   "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
