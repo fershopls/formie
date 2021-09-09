@@ -29,7 +29,7 @@
 import FieldLabel from "./Label";
 import FieldError from "./Error";
 
-import InputDefault from "./Inputs/Default";
+import InputDefault from "../Inputs/Default";
 
 export default {
   props: ["field", "modelValue", "context"],
