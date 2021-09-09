@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@ferchoposting/formie",
-  "version": "1.0.512",
+  "version": "1.0.513",
   "description": "Create forms with Vue 3 easily, extensively and with fun!",
   "main": "src/main.js",
   "scripts": {
