@@ -1,11 +1,24 @@
 # Installation
+Install with npm
 ```shell
 npm install @ferchoposting/formie
 ```
 
-
+Import library and input
 ```js
 import { Formie, inputs } from "@ferchoposting/formie";
+```
+
+Add components to tailwind purge components
+### tailwind.config.js
+```js
+{
+  ...
+  purge: [
+    ...,
+    './node_modules/@ferchoposting/formie/**/*.vue',
+  ],
+}
 ```
 
 # How to use it?
@@ -41,7 +54,8 @@ class ProductController extends Controller
 </template>
 
 <script>
-import Formie from '@/Formie/Formie';
+import { Formie } from "@ferchoposting/formie";
+
 import form from './form.js';
 
 export default {
@@ -51,8 +65,8 @@ export default {
     Formie,
   },
   
-  setup () {
-    return { form };
+  setup (props) {
+    return { form(props) };
   }
 }
 </script>
@@ -63,31 +77,36 @@ export default {
 ```js
 import { Inertia } from '@inertiajs/inertia';
 
-import InputRadio from "@/Formie/Inputs/Radio";
-import InputTextarea from "@/Formie/Inputs/Textarea";
-import FieldButton from "@/Formie/Inputs/Button";
-import FieldUpload from "@/Formie/Inputs/Upload";
+import { inputs } from "@ferchoposting/formie";
+
+import ImageApiManager from "./ImageApiManager";
 
 
-const onDelete = ({values}) => {
-    if (values.id && confirm("Estas seguro?")) {
-        const url = route('products.destroy', values.id);
+const onDelete = ({ id }) => {
+    if (id && confirm("Estas seguro?")) {
+        const url = route('products.destroy', id);
         Inertia.delete(url);
     }
 };
 
-const onSave = ({ values }) => {
-    if (values.id) {
-        const url = route('products.update', values.id);
-        Inertia.put(url, values);
+const onSubmit = ({ id, values }) => {
+    const options = {
+        preserveScroll: true,
+        onSuccess: () => values.images_upload = null,
+    };
+
+    if (id) {
+        const url = route('products.update', id);
+        const data = {_method: 'PUT', ...values};
+        Inertia.post(url, data, options);
     } else {
         const url = route('products.store');
-        Inertia.post(url, values);
+        Inertia.post(url, values, options);
     }
 }
 
 
-export default [
+export default (props) => [
   {
     name: "name",
     label: "Nombre del Producto",
@@ -101,33 +120,33 @@ export default [
   {
     name: "description",
     label: "Descripción",
-    type: InputTextarea
+    type: inputs.Textarea
   },
   {
-    name: "images",
+    name: "images_upload",
     label: "Imágenes",
-    type: FieldUpload,
+    type: inputs.Upload,
     multiple: true,
   },
   {
-    name: "category",
+    type: ImageApiManager,
+    route: "products.images.destroy",
+  },
+  {
+    name: "category_id",
     label: "Categoría",
-    type: InputRadio,
+    type: inputs.Select,
     attrs: {
       class: "flex-col"
     },
-    options: {
-      admin: "Inmuebles",
-      editor: "Videojuegos",
-      mod: "Artistas"
-    }
+    options: props.categories,
   },
   {
-    type: FieldButton,
+    type: inputs.Buttons,
     buttons: [
       // Delete async button
-      function ({ values }) {
-          if (values.id) {
+      function ({ id }) {
+          if (id) {
             return {
               label: "Eliminar",
               class: "bg-red-700 text-white",
@@ -135,11 +154,12 @@ export default [
             };
           }
       },
+
       // Save button
       {
         label: "Guardar",
         type: "submit",
-        clicked: onSave,
+        clicked: onSubmit,
       }
     ]
   }
