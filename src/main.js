@@ -1,6 +1,8 @@
-import Formie from './Formie.vue';
-import inputs from './Inputs/inputs.js';
+import FormieComponent from './Formie.vue';
+import FormieInputs from './Inputs/inputs.js';
 
-export const Formie;
+export default FormieComponent;
 
-export const inputs;
+export const Formie = FormieComponent;
+
+export const inputs = FormieInputs;
