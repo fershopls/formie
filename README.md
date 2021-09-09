@@ -1,3 +1,6 @@
+# Requirements
+- Tailwind.css
+
 # Installation
 Install with npm
 ```shell
@@ -21,8 +24,178 @@ Add components to tailwind purge components
 }
 ```
 
-# How to use it?
 
+# Introduction
+
+### Create login form
+
+```html
+<template>
+  <div class="max-w-md mt-12 mx-auto">
+    <formie :form="form" />
+  </div>
+</template>
+
+
+<script>
+import { Formie } from "@ferchoposting/formie";
+
+export default {
+  components: {
+    Formie,
+  },
+
+  setup() {
+    const form = [
+      // Username field
+      {
+        name: "username",
+        label: "Username or email",
+        type: "text",
+      },
+      // Password field
+      {
+        name: "password",
+        label: "Your secret password",
+        type: "password",
+      },
+    ];
+
+    return { form };
+  },
+};
+</script>
+```
+
+### The result will be a simple login form:
+<img src="images/01.jpg">
+
+
+### Yeah but... How do I get the info?
+Copy and paste the following code:
+```html
+<template>
+  <div class="max-w-md mt-12 mx-auto">
+    <formie :form="form" />
+  </div>
+</template>
+
+<script>
+import { Formie, inputs } from "@ferchoposting/formie";
+
+export default {
+  components: {
+    Formie,
+  },
+
+  setup() {
+    const form = [
+      // Username field
+      {
+        name: "username",
+        label: "Username or email",
+        type: "text",
+      },
+      // Password field
+      {
+        name: "password",
+        label: "Your secret password",
+        type: "password",
+      },
+      // Buttons
+      {
+        type: inputs.Buttons,
+        buttons: [
+          {
+            label: "Login",
+            clicked(context) {
+              alert(`User: ${context.values.username}!`);
+            },
+          },
+        ],
+      },
+    ];
+
+    return { form };
+  },
+};
+</script>
+```
+
+The clicked function will be executed when button is clicked.
+
+
+# Context object
+```js
+const context = {
+  // Object containing the user input on fields.
+  values: Object,
+  
+  // The <model> with existing data supplied to form.
+  model: Object,
+
+  // The form object returned in setup function
+  form: Object,
+
+  // Form errors returned by inertia
+  errors: Object,
+  
+  // Shortcut to model.id if exists else null.
+  id: [Number, null],
+}
+```
+
+
+# Available inputs
+```js
+inputs.Buttons // Props: buttons
+inputs.Default // Props: type
+inputs.Checkbox // Props: default
+inputs.Radio // Props: options
+inputs.Select // Props: options
+inputs.Textarea
+inputs.Upload
+```
+
+
+# Create custom input
+You can return **any** vue component to the `type` property on form fields object.
+
+```js
+import CustomImageUploader from './CustomImageUploader.vue';
+
+const form = [
+  {
+    label: "Fancy image uploader",
+    type: CustomImageUploader,
+  }
+]
+```
+### CustomImageUploader.vue
+
+Props:
+
+- `field`: Will be the object from the form (including label, type, etc)
+- `value`: Will be the `modelValue` for fields, contains the model for the field.
+
+Emits:
+- `update`: Updates the value for the field `field`.
+
+
+```html
+<script>
+export default {
+  props: ["field", "value"],
+
+  emits: ["update"],
+}
+</script>
+```
+
+
+
+
+# Copy paste example
 
 ### ProductController.php
 ```php
