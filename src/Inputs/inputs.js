@@ -1,15 +1,17 @@
-import InputButtons from './Buttons.vue';
-import InputCheckbox from './Checkbox.vue';
-import InputRadio from './Radio.vue';
-import InputDefault from './Default.vue';
-import InputSelect from './Select.vue';
-import InputTextarea from './Textarea.vue';
-import InputUpload from './Upload.vue';
+import Buttons from './Buttons.vue';
+import Checkbox from './Checkbox.vue';
+import Radio from './Radio.vue';
+import Default from './Default.vue';
+import Select from './Select.vue';
+import Textarea from './Textarea.vue';
+import Upload from './Upload.vue';
 
-export const Buttons = InputButtons;
-export const Checkbox = InputCheckbox;
-export const Radio = InputRadio;
-export const Default = InputDefault;
-export const Select = InputSelect;
-export const Textarea = InputTextarea;
-export const Upload = InputUpload;
+export default {
+  Buttons,
+  Checkbox,
+  Radio,
+  Default,
+  Select,
+  Textarea,
+  Upload,
+}
