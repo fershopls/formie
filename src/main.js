@@ -1,6 +1,8 @@
+import Formie from './Formie.vue';
+import inputs from './Inputs/inputs.js';
 
-export function hello () {
+export default Formie;
 
-    console.log("Hello world!");
+export const Formie;
 
-};
+export const inputs;
