@@ -45,12 +45,12 @@ class ProductController extends Controller
 ### CreateEdit.vue
 ```html
 <template>
-<formie
+  <formie
     :form="form"
     :model="model"
     :errors="$page.props.errors"
     :debug="true"
-/>
+  />
 </template>
 
 <script>
@@ -78,8 +78,6 @@ export default {
 import { Inertia } from '@inertiajs/inertia';
 
 import { inputs } from "@ferchoposting/formie";
-
-import ImageApiManager from "./ImageApiManager";
 
 
 const onDelete = ({ id }) => {
@@ -127,10 +125,6 @@ export default (props) => [
     label: "Imágenes",
     type: inputs.Upload,
     multiple: true,
-  },
-  {
-    type: ImageApiManager,
-    route: "products.images.destroy",
   },
   {
     name: "category_id",
