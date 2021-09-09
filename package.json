@@ -1,0 +1,24 @@
+{
+  "name": "formie",
+  "version": "1.0.0",
+  "description": "Create forms with Vue easily, extensively and funny!",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fershopls/formie.git"
+  },
+  "keywords": [
+    "vue3",
+    "form-generator",
+    "custom-fields"
+  ],
+  "author": "Fercho Posting",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fershopls/formie/issues"
+  },
+  "homepage": "https://github.com/fershopls/formie#readme"
+}
