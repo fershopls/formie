@@ -1,9 +1,9 @@
 <template>
   <div>
     <div v-if="field.label">
-      <input-label>
+      <field-label>
         {{ field.label }}
-      </input-label>
+      </field-label>
     </div>
     <component
       :is="component"
@@ -14,20 +14,20 @@
     />
 
     <div v-if="field.name && context.errors">
-      <input-error
+      <field-error
         v-for="error, key in errors"
         :key="key"
       >
         {{ error }}
-      </input-error>
+      </field-error>
     </div>
   </div>
 </template>
 
 
 <script>
-import InputLabel from "./Label";
-import InputError from "./Error";
+import FieldLabel from "./Label";
+import FieldError from "./Error";
 
 import InputDefault from "./Inputs/Default";
 
@@ -36,8 +36,8 @@ export default {
   emits: ["update:modelValue"],
 
   components: {
-    InputLabel,
-    InputError,
+    FieldLabel,
+    FieldError,
   },
 
   methods: {

@@ -29,7 +29,7 @@
 
 
 <script>
-import Field from "./Field";
+import Field from "./Field/Field";
 
 export default {
   props: ["form", "model", "debug", "errors"],
