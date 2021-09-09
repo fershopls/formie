@@ -1,8 +1,6 @@
 
-export default {
+export function hello () {
 
-  hello () {
-    console.log("Hello world!")
-  }
+    console.log("Hello world!");
 
 };
