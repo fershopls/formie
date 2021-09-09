@@ -4,7 +4,7 @@
     v-bind="field.attrs"
   >
     <select
-      class="border border-gray-300 rounded p-3"
+      class="border border-gray-300 rounded p-3 w-full"
       :value="value"
       @input="pick($event.target.value)"
     >
