@@ -1,3 +1,13 @@
+# Installation
+```shell
+npm install @ferchoposting/formie
+```
+
+
+```js
+import { Formie, inputs } from "@ferchoposting/formie";
+```
+
 # How to use it?
 
 
