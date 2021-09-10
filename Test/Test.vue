@@ -1,11 +1,11 @@
 <template>
-  <div class="max-w-lg mt-12 mx-auto border border-gray-200 rounded p-2">
+  <div class="max-w-lg mt-12 mx-auto border border-gray-200 rounded p-6">
     <formie :form="form" />
   </div>
 </template>
 
 <script>
-import Formie from "../src/Formie.vue";
+import { Formie } from "../src/formie.js";
 
 export default {
   components: {
