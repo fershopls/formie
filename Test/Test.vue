@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { Formie } from "../src/formie.js";
+import { Formie, inputs } from "../src/formie.js";
 
 export default {
   components: {
@@ -18,6 +18,10 @@ export default {
         name: "fullname",
         label: "Nombre completo",
         type: "text",
+      },
+      {
+        type: inputs.Buttons,
+        buttons: [{ label: "Guardar" }],
       },
     ];
 
