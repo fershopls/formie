@@ -5,12 +5,13 @@
         {{ field.label }}
       </field-label>
     </div>
+
     <component
       :is="component"
       :field="safeField(field)"
-      :value="modelValue"
+      :value="value"
       :context="context"
-      @update="(value) => $emit('update:modelValue', value)"
+      @update="(value) => $emit('update', value)"
     />
 
     <div v-if="field.name && context.errors">
@@ -32,8 +33,8 @@ import FieldError from "./Error.vue";
 import InputDefault from "../Inputs/Default.vue";
 
 export default {
-  props: ["field", "modelValue", "context"],
-  emits: ["update:modelValue"],
+  props: ["field", "value", "context"],
+  emits: ["update"],
 
   components: {
     FieldLabel,

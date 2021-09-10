@@ -11,7 +11,8 @@
       <field
         :field="field"
         :context="context"
-        v-model="values[field.name]"
+        :value="getFieldValue(field)"
+        @update="(value) => onUpdateFieldValue(field, value)"
       />
     </div>
 
@@ -65,6 +66,12 @@ export default {
   methods: {
     onSubmit() {
       this.$emit("submitted", this.context);
+    },
+    getFieldValue(field) {
+      return this.values[field.name];
+    },
+    onUpdateFieldValue(field, value) {
+      this.values[field.name] = value;
     },
   },
 
