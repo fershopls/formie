@@ -6,7 +6,7 @@
     >
       <button
         :type="button.type ? button.type : 'button'"
-        @click="button.clicked(context)"
+        @click="onButtonClick(button)"
         class="px-3 py-2 rounded hover:scale-105 transform transition-transform"
         :class="getButtonStyle(button)"
       >
@@ -35,6 +35,12 @@ export default {
   },
 
   methods: {
+    onButtonClick(button) {
+      if (typeof button.clicked === "function") {
+        button.clicked(this.context);
+      }
+    },
+
     getButtonStyle(button) {
       if (button.class) {
         return button.class;
