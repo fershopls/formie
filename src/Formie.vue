@@ -45,17 +45,12 @@ export default {
   mounted() {
     this.form.forEach((field) => {
       if (field.name) {
-        this.values[field.name] = null;
+        let value = null;
+        value = getSetStringProp(this.model, field.name);
+
+        getSetStringProp(this.values, field.name, value);
       }
     });
-
-    if (this.model) {
-      Object.keys(this.model).forEach((key) => {
-        if (this.values.hasOwnProperty(key)) {
-          this.values[key] = this.model[key];
-        }
-      });
-    }
   },
 
   data() {
