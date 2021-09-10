@@ -24,6 +24,21 @@ export default {
         type: "text",
       },
       {
+        name: "user.email",
+        label: "Correo",
+        type: "email",
+      },
+      {
+        name: "birth_date",
+        label: "Fecha de Nacimiento",
+        type: "date",
+      },
+      {
+        name: "dni",
+        label: "DNI",
+        type: "tel",
+      },
+      {
         type: inputs.Buttons,
         buttons: [{ label: "Guardar" }],
       },
