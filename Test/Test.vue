@@ -3,6 +3,7 @@
     <formie
       :form="form"
       :model="model"
+      :errors="errors"
       debug=1
     />
   </div>
@@ -48,7 +49,11 @@ export default {
       user: { name: "Ferchis" },
     };
 
-    return { form, model };
+    const errors = {
+      "user.name": "Te equivocaste wey",
+    };
+
+    return { form, model, errors };
   },
 };
 </script>
