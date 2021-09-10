@@ -51,6 +51,7 @@ export default {
 
     const errors = {
       "user.name": "Te equivocaste wey",
+      dni: "El DNI es invalido.",
     };
 
     return { form, model, errors };
