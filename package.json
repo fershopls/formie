@@ -4,7 +4,20 @@
   "version": "1.0.513",
   "description": "Create forms with Vue 3 easily, extensively and with fun!",
   "main": "src/main.js",
+  "dependencies": {
+    "vue": "^3.0.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.3.4",
+    "cross-env": "^7.0.3",
+    "@vue/compiler-sfc": "^3.0.4",
+    "tailwindcss": "^2.2.14",
+    "vite": "^1.0.0-rc.13"
+  },
   "scripts": {
+    "dev": "cross-env NODE_ENV=local vite",
+    "build": "vite build",
+    "build:css": "cross-env NODE_ENV=production postcss src/index.css -o dist/style.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

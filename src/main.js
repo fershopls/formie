@@ -1,8 +1,7 @@
-import FormieComponent from './Formie.vue';
-import FormieInputs from './Inputs/inputs.js';
+import { createApp } from "vue";
 
-export default FormieComponent;
+import App from "../Test/Test.vue";
 
-export const Formie = FormieComponent;
+import "./index.css";
 
-export const inputs = FormieInputs;
+createApp(App).mount("#app");
