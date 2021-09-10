@@ -29,7 +29,7 @@
 import FieldLabel from "./Label.vue";
 import FieldError from "./Error.vue";
 
-import InputDefault from "../Inputs/Default";
+import InputDefault from "../Inputs/Default.vue";
 
 export default {
   props: ["field", "modelValue", "context"],
