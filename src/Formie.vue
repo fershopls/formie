@@ -31,6 +31,7 @@
 
 <script>
 import Field from "./Field/Field.vue";
+import getSetStringProp from "./getSetStringProp.js";
 
 export default {
   props: ["form", "model", "debug", "errors"],
@@ -68,10 +69,10 @@ export default {
       this.$emit("submitted", this.context);
     },
     getFieldValue(field) {
-      return this.values[field.name];
+      return getSetStringProp(this.values, field.name);
     },
     onUpdateFieldValue(field, value) {
-      this.values[field.name] = value;
+      getSetStringProp(this.values, field.name, value);
     },
   },
 
