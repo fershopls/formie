@@ -29,7 +29,7 @@
 
 
 <script>
-import Field from "./Field/Field";
+import Field from "./Field/Field.vue";
 
 export default {
   props: ["form", "model", "debug", "errors"],

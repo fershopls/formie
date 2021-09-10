@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { Formie } from "@ferchoposting/formie";
+import Formie from "../src/Formie.vue";
 
 export default {
   components: {

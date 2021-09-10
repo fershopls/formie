@@ -26,8 +26,8 @@
 
 
 <script>
-import FieldLabel from "./Label";
-import FieldError from "./Error";
+import FieldLabel from "./Label.vue";
+import FieldError from "./Error.vue";
 
 import InputDefault from "../Inputs/Default";
 
