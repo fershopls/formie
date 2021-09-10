@@ -68,9 +68,11 @@ export default {
     onSubmit() {
       this.$emit("submitted", this.context);
     },
+
     getFieldValue(field) {
       return getSetStringProp(this.values, field.name);
     },
+
     onUpdateFieldValue(field, value) {
       getSetStringProp(this.values, field.name, value);
     },

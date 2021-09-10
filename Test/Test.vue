@@ -2,6 +2,7 @@
   <div class="max-w-lg mt-12 mx-auto border border-gray-200 rounded p-6">
     <formie
       :form="form"
+      :model="model"
       debug=1
     />
   </div>
@@ -28,7 +29,11 @@ export default {
       },
     ];
 
-    return { form };
+    const model = {
+      user: { name: "Ferchis" },
+    };
+
+    return { form, model };
   },
 };
 </script>
