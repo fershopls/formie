@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 
-import App from "../Test/Test.vue";
+import App from "../Vite/Vite.vue";
 
 import "./index.css";
 
