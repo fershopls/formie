@@ -1,22 +1,21 @@
 <template>
-  <form
-    @submit.prevent="onSubmit"
-    class="grid gap-4"
-  >
-    <!-- Fields -->
-    <template
-      v-for="(field, key) in form"
-      :key="key"
-    >
-      <field
-        :field="field"
-        :context="context"
-        :value="getFieldValue(field)"
-        @update="(value) => onUpdateFieldValue(field, value)"
-        :fieldLabel="$attrs.fieldLabel"
-        :fieldError="$attrs.fieldError"
-      />
-    </template>
+  <form @submit.prevent="onSubmit">
+    <div class="grid gap-4">
+      <!-- Fields -->
+      <template
+        v-for="(field, key) in form"
+        :key="key"
+      >
+        <field
+          :field="field"
+          :context="context"
+          :value="getFieldValue(field)"
+          @update="(value) => onUpdateFieldValue(field, value)"
+          :fieldLabel="$attrs.fieldLabel"
+          :fieldError="$attrs.fieldError"
+        />
+      </template>
+    </div>
 
     <!-- Debug -->
     <template v-if="debug">

@@ -77,8 +77,7 @@ export default {
     };
 
     const errors = {
-      "client.name": "Este campo es requerido",
-      type: "Selecciona un tipo.",
+      //
     };
 
     const onSubmit = (ctx) => {
