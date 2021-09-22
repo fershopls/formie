@@ -4,7 +4,7 @@
     class="grid gap-4"
   >
     <!-- Fields -->
-    <div
+    <template
       v-for="(field, key) in form"
       :key="key"
     >
@@ -14,8 +14,9 @@
         :value="getFieldValue(field)"
         @update="(value) => onUpdateFieldValue(field, value)"
       />
-    </div>
+    </template>
 
+    <!-- Debug -->
     <template v-if="debug">
       <pre
         v-text="values"
