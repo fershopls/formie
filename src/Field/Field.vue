@@ -1,11 +1,12 @@
 <template>
   <div>
-    <div v-if="field.label">
-      <field-label>
-        {{ field.label }}
-      </field-label>
-    </div>
 
+    <!-- Label -->
+    <template v-if="field.label">
+      <field-label>{{ field.label }}</field-label>
+    </template>
+
+    <!-- Field -->
     <component
       :is="component"
       :field="safeField(field)"
@@ -14,14 +15,16 @@
       @update="(value) => $emit('update', value)"
     />
 
-    <div v-if="field.name && context.errors">
+    <!-- Errors -->
+    <template v-if="field.name && context.errors">
       <field-error
         v-for="error, key in errors"
         :key="key"
       >
         {{ error }}
       </field-error>
-    </div>
+    </template>
+
   </div>
 </template>
 
