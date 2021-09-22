@@ -12,6 +12,16 @@ class Group {
     return this;
   }
 
+  class(classNames) {
+    if (!this.attrs) {
+      this.attrs = {};
+    }
+
+    this.attrs.class = classNames;
+
+    return this;
+  }
+
   attrs(attrs) {
     this.attrs = attrs;
 
