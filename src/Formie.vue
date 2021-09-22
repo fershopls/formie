@@ -27,6 +27,7 @@
 
 
 <script>
+import getSetStringProp from "./getSetStringProp.js";
 import FormRender from "./Form/FormRender.vue";
 
 export default {
@@ -37,7 +38,7 @@ export default {
   components: { FormRender },
 
   mounted() {
-    // this.hydrateValuesWithModelByFieldName();
+    this.hydrateValuesWithModelByFieldName();
   },
 
   data() {
@@ -45,14 +46,28 @@ export default {
   },
 
   methods: {
-    hydrateValuesWithModelByFieldName() {
-      this.form.forEach((field) => {
-        if (field.name) {
-          let value = null;
-          value = getSetStringProp(this.model, field.name);
+    getAllFieldNamesFor(form) {
+      let fieldNames = [];
 
-          getSetStringProp(this.values, field.name, value);
+      form.forEach((formItem) => {
+        if (formItem.constructor.name == "Group") {
+          fieldNames.push(...this.getAllFieldNamesFor(formItem.fields));
+        } else {
+          fieldNames.push(formItem.name);
         }
+      });
+
+      fieldNames = fieldNames.filter((x) => typeof x != typeof undefined);
+
+      return fieldNames;
+    },
+
+    hydrateValuesWithModelByFieldName() {
+      const fieldNames = this.getAllFieldNamesFor(this.form);
+
+      fieldNames.forEach((name) => {
+        let value = getSetStringProp(this.model, name);
+        getSetStringProp(this.values, name, value);
       });
     },
 

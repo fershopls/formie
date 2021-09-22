@@ -92,7 +92,8 @@ export default {
     ];
 
     const model = {
-      client: { name: "Ferchis" },
+      client: { name: "Ferchis", lastname: "Munoz" },
+      antecedents: "Nada jajaja xd",
     };
 
     const errors = {
