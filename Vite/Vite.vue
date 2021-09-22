@@ -10,33 +10,21 @@
 </template>
 
 <script>
-import { Formie, inputs } from "../src/main.js";
+import { Formie, inputs, f } from "../src/main.js";
 
 export default {
   components: { Formie },
 
   setup() {
     const form = [
-      {
-        name: "user.name",
-        label: "Nombre completo",
-        type: "text",
-      },
-      {
-        name: "user.email",
-        label: "Correo",
-        type: "email",
-      },
-      {
-        name: "birth_date",
-        label: "Fecha de Nacimiento",
-        type: "date",
-      },
-      {
-        name: "dni",
-        label: "DNI",
-        type: "tel",
-      },
+      f(["client.name", "Cliente: Nombre"]),
+      f(["client.lastname", "Cliente: Apellidos"]),
+      f(["client.birth_date", "Cliente: Fecha de Nacimiento", "date"]),
+      f(["client.country", "Cliente: País"]),
+      f(["client.city", "Cliente: Ciudad"]),
+      f(["client.email", "Cliente: Correo Electrónico", "email"]),
+      f(["client.phone", "Cliente: Teléfono", "phone"]),
+
       {
         type: inputs.Buttons,
         buttons: [{ label: "Guardar" }],
