@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { Formie, inputs } from "../src/formie.js";
+import { Formie, inputs } from "../src/main.js";
 
 export default {
   components: {
