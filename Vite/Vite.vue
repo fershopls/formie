@@ -1,9 +1,10 @@
 <template>
-  <div class="max-w-lg mt-12 mx-auto border border-gray-200 rounded p-6">
+  <div class="max-w-lg my-12 mx-auto border border-gray-200 rounded p-6">
     <formie
       :form="form"
       :model="model"
       :errors="errors"
+      @submitted="onSubmit"
       debug=1
     />
   </div>
@@ -18,32 +19,61 @@ export default {
   setup() {
     const form = [
       // Client
-      f("client.name", "Cliente: Nombre"),
-      f("client.lastname", "Cliente: Apellidos"),
-      f("client.birth_date", "Cliente: Fecha de Nacimiento", "date"),
-      f("client.country", "Cliente: País"),
-      f("client.city", "Cliente: Ciudad"),
-      f("client.email", "Cliente: Correo Electrónico", "email"),
-      f("client.phone", "Cliente: Teléfono", "phone"),
+      f("client.name", "Cliente: Nombre").required(),
+      f("client.lastname", "Cliente: Apellidos").required(),
+      f("client.birth_date", "Cliente: Fecha de Nacimiento").date().required(),
+      f("client.country", "Cliente: País").required(),
+      f("client.city", "Cliente: Ciudad").required(),
+      f("client.email", "Cliente: Correo Electrónico").email().required(),
+      f("client.phone", "Cliente: Teléfono", "phone").tel().required(),
 
       // Goal
-      f("antecedents", "Antecedentes", inputs.Textarea, {
+      f("antecedents", "Antecedentes", inputs.Textarea).extend({
         attrs: { rows: 3, placeholder: "Situacion actual..." },
       }),
 
-      f("type", "¿Qué protocolo vas a realizar?", inputs.Select, {
+      f("type", "¿Qué protocolo vas a realizar?", inputs.Select).extend({
         options: ["Protocolo General", "Protocolo de Salud"],
+      }),
+
+      f("goal", "¿Cuál es el objetivo?", inputs.Textarea),
+
+      f("kind", "¿En qué categoría encaja el objetivo?", inputs.Select).extend({
+        options: [
+          "Autoestima",
+          "Depresión y otros estados emocionales",
+          "Dinero",
+          "Pareja y relaciones",
+          "Sobrepeso",
+          "Trabajo",
+          "Adicciones",
+          "Enfermedades mentales",
+          "Otros",
+        ],
+      }),
+
+      f("details", "Detalles del Objetivo", inputs.Textarea).extend({
+        attrs: {
+          rows: 3,
+          placeholder:
+            "Introduce los detalles y definiciones necesarias para que el objetivo quede perfectamente definido. Por ejemplo, significado de palabras como óptimo, ideal, mejor, peor, …, características de la pareja ideal, del trabajo ideal, etc.",
+        },
       }),
 
       // Buttons
       {
         type: inputs.Buttons,
-        buttons: [{ label: "Guardar" }],
+        buttons: [
+          {
+            label: "Guardar",
+            type: "submit",
+          },
+        ],
       },
     ];
 
     const model = {
-      user: { name: "Ferchis" },
+      client: { name: "Ferchis" },
     };
 
     const errors = {
@@ -51,7 +81,12 @@ export default {
       type: "Selecciona un tipo.",
     };
 
-    return { form, model, errors };
+    const onSubmit = (ctx) => {
+      alert("Submited!");
+      console.log(ctx);
+    };
+
+    return { onSubmit, form, model, errors };
   },
 };
 </script>
