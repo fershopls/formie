@@ -3,7 +3,7 @@
   "name": "@ferchoposting/formie",
   "version": "1.0.516",
   "description": "Create forms with Vue 3 easily, extensively and with fun!",
-  "main": "src/formie.js",
+  "main": "src/main.js",
   "dependencies": {
     "vue": "^3.0.4"
   },
