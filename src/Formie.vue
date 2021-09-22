@@ -1,21 +1,13 @@
 <template>
   <form @submit.prevent="onSubmit">
-    <div class="grid gap-4">
-      <!-- Fields -->
-      <template
-        v-for="(field, key) in form"
-        :key="key"
-      >
-        <field
-          :field="field"
-          :context="context"
-          :value="getFieldValue(field)"
-          @update="(value) => onUpdateFieldValue(field, value)"
-          :fieldLabel="$attrs.fieldLabel"
-          :fieldError="$attrs.fieldError"
-        />
-      </template>
-    </div>
+
+    <form-render
+      :form="form"
+      :model="model"
+      :errors="errors"
+      :values="values"
+      :context="context"
+    />
 
     <!-- Debug -->
     <template v-if="debug">
@@ -24,8 +16,8 @@
         class="mt-8 text-xs overflow-x-auto bg-gray-800 text-white p-4 rounded"
       ></pre>
       <pre
-        v-if="$props.errors"
-        v-text="$props.errors"
+        v-if="errors"
+        v-text="errors"
         class="mt-3 text-xs overflow-x-auto bg-red-800 text-white p-4 rounded"
       ></pre>
     </template>
@@ -35,18 +27,17 @@
 
 
 <script>
-import Field from "./Field/Field.vue";
-import getSetStringProp from "./getSetStringProp.js";
+import FormRender from "./Form/FormRender.vue";
 
 export default {
   props: ["form", "model", "errors", "debug"],
 
   emits: ["submitted"],
 
-  components: { Field },
+  components: { FormRender },
 
   mounted() {
-    this.hydrateValuesWithModelByFieldName();
+    // this.hydrateValuesWithModelByFieldName();
   },
 
   data() {
@@ -67,14 +58,6 @@ export default {
 
     onSubmit() {
       this.$emit("submitted", this.context);
-    },
-
-    getFieldValue(field) {
-      return getSetStringProp(this.values, field.name);
-    },
-
-    onUpdateFieldValue(field, value) {
-      getSetStringProp(this.values, field.name, value);
     },
   },
 

@@ -1,26 +1,34 @@
 <template>
   <div class="max-w-lg my-12 mx-auto border border-gray-200 rounded p-6">
+
     <formie
+      class="grid gap-4"
       :form="form"
       :model="model"
       :errors="errors"
       @submitted="onSubmit"
       debug=1
     />
+
   </div>
 </template>
 
 <script>
-import { Formie, inputs, f } from "../src/main.js";
+import { Formie, inputs, f, group } from "../src/main.js";
 
 export default {
   components: { Formie },
 
   setup() {
     const form = [
+      group([
+        f("client.name", "Cliente: Nombre").required(),
+        f("client.lastname", "Cliente: Apellidos").required(),
+      ]).attrs({
+        class: "grid gap-4 grid-cols-2",
+      }),
+
       // Client
-      f("client.name", "Cliente: Nombre").required(),
-      f("client.lastname", "Cliente: Apellidos").required(),
       f("client.birth_date", "Cliente: Fecha de Nacimiento").date().required(),
       f("client.country", "Cliente: País").required(),
       f("client.city", "Cliente: Ciudad").required(),
