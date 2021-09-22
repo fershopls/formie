@@ -3,7 +3,7 @@
 
     <!-- Label -->
     <template v-if="field.label">
-      <field-label>{{ field.label }}</field-label>
+      <component :is="fieldLabel">{{ field.label }}</component>
     </template>
 
     <!-- Field -->
@@ -17,12 +17,13 @@
 
     <!-- Errors -->
     <template v-if="field.name && context.errors">
-      <field-error
+      <component
+        :is="fieldError"
         v-for="error, key in errors"
         :key="key"
       >
         {{ error }}
-      </field-error>
+      </component>
     </template>
 
   </div>
@@ -36,7 +37,20 @@ import FieldError from "./Error.vue";
 import InputDefault from "../Inputs/Default.vue";
 
 export default {
-  props: ["field", "value", "context"],
+  props: {
+    field: null,
+    value: null,
+    context: null,
+
+    fieldLabel: {
+      default: FieldLabel,
+    },
+
+    fieldError: {
+      default: FieldError,
+    },
+  },
+
   emits: ["update"],
 
   components: {

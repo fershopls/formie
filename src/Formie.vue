@@ -13,6 +13,8 @@
         :context="context"
         :value="getFieldValue(field)"
         @update="(value) => onUpdateFieldValue(field, value)"
+        :fieldLabel="$attrs.fieldLabel"
+        :fieldError="$attrs.fieldError"
       />
     </template>
 
@@ -38,7 +40,7 @@ import Field from "./Field/Field.vue";
 import getSetStringProp from "./getSetStringProp.js";
 
 export default {
-  props: ["form", "model", "debug", "errors"],
+  props: ["form", "model", "errors", "debug"],
 
   emits: ["submitted"],
 
