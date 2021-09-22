@@ -1,8 +1,9 @@
-export default function (array, options = {}) {
+export default function (name, label, type = "text", options = {}) {
   return {
-    name: array[0],
-    label: array[1],
-    type: array[2],
+    name,
+    label,
+    type,
+
     ...options,
   };
 }
