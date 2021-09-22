@@ -44,20 +44,9 @@ export default {
 
   components: { Field },
 
-  mounted() {
-    this.form.forEach((field) => {
-      if (field.name) {
-        let value = null;
-        value = getSetStringProp(this.model, field.name);
-
-        getSetStringProp(this.values, field.name, value);
-      }
-    });
-  },
-
   data() {
     return {
-      values: {},
+      values: this.model,
     };
   },
 
