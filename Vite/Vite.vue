@@ -27,15 +27,9 @@ export default {
       f(["client.phone", "Cliente: Teléfono", "phone"]),
 
       // Goal
-      {
-        name: "antecedents",
-        label: "Antecedentes",
-        type: inputs.Textarea,
-        attrs: {
-          rows: 2,
-          placeholder: "Put your shit here",
-        },
-      },
+      f(["antecedents", "Antecedentes", inputs.Textarea], {
+        attrs: { rows: 3, placeholder: "Situacion actual..." },
+      }),
 
       {
         type: inputs.Buttons,
