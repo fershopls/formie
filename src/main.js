@@ -1,8 +1,11 @@
-import FormieComponent from './Formie.vue';
-import FormieInputs from './Inputs/inputs.js';
+import FormieComponent from "./Formie.vue";
+import FormieInputs from "./Inputs/inputs.js";
+import FieldHelper from "./FieldHelper.js";
 
 export default FormieComponent;
 
 export const Formie = FormieComponent;
 
 export const inputs = FormieInputs;
+
+export const f = FieldHelper;
