@@ -1,11 +1,9 @@
 <template>
-  <div class="flex">
-    <div class="text-red-600 mt-2 px-2 text-center border border-red-400 rounded flex items-center">
-      <div class="text-lg mr-2">
-        <i class="fas fa-exclamation-triangle"></i>
-      </div>
-      <slot />
+  <div class="py-2 text-white bg-red-600 mt-2 px-3 text-center rounded flex items-center">
+    <div class="text-lg mr-4">
+      <i class="fas fa-exclamation-triangle"></i>
     </div>
+    <slot />
   </div>
 </template>
 
