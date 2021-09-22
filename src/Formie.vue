@@ -49,9 +49,7 @@ export default {
   },
 
   data() {
-    return {
-      values: {},
-    };
+    return { values: {} };
   },
 
   methods: {
