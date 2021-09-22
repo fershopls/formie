@@ -24,7 +24,7 @@ export default {
       group([
         f("client.name", "Cliente: Nombre").required(),
         f("client.lastname", "Cliente: Apellidos").required(),
-      ]).class("text-red-500 grid gap-4 grid-cols-2"),
+      ]).class("grid gap-4 grid-cols-2"),
 
       // Client
       f("client.birth_date", "Cliente: Fecha de Nacimiento").date().required(),
