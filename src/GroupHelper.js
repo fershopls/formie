@@ -6,8 +6,12 @@ class Group {
     return this;
   }
 
-  type(component) {
+  type(component, options = {}) {
     this._type = component;
+
+    Object.keys(options).forEach((key) => {
+      this[key] = options[key];
+    });
 
     return this;
   }
