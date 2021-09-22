@@ -13,9 +13,7 @@
 import { Formie, inputs } from "../src/main.js";
 
 export default {
-  components: {
-    Formie,
-  },
+  components: { Formie },
 
   setup() {
     const form = [
