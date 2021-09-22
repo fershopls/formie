@@ -1,6 +1,13 @@
 class Group {
   constructor(fields) {
     this.fields = fields;
+    this._type = "div";
+
+    return this;
+  }
+
+  type(component) {
+    this._type = component;
 
     return this;
   }

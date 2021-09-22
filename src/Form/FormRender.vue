@@ -6,7 +6,10 @@
 
     <!-- If group -->
     <template v-if="item.constructor.name == 'Group'">
-      <div v-bind="item.attrs">
+      <component
+        :is="item._type"
+        v-bind="item.attrs"
+      >
         <form-render
           :form="item.fields"
           :model="model"
@@ -14,7 +17,7 @@
           :context="context"
           :values="values"
         />
-      </div>
+      </component>
     </template>
 
     <!-- If field -->

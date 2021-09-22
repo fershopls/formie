@@ -16,6 +16,8 @@
 <script>
 import { Formie, inputs, f, group } from "../src/main.js";
 
+import DarkGroup from "./DarkGroup.vue";
+
 export default {
   components: { Formie },
 
@@ -24,9 +26,11 @@ export default {
       group([
         f("client.name", "Cliente: Nombre").required(),
         f("client.lastname", "Cliente: Apellidos").required(),
-      ]).attrs({
-        class: "grid gap-4 grid-cols-2",
-      }),
+      ])
+        .attrs({
+          class: "grid gap-4 grid-cols-2",
+        })
+        .type(DarkGroup),
 
       // Client
       f("client.birth_date", "Cliente: Fecha de Nacimiento").date().required(),
