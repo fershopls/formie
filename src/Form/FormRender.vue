@@ -8,7 +8,8 @@
     <template v-if="item.constructor.name == 'Group'">
       <component
         :is="item._type"
-        v-bind="item.attrs"
+        :group="item"
+        v-bind="item._attrs"
       >
         <form-render
           :form="item.fields"
