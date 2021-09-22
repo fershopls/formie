@@ -44,13 +44,28 @@ export default {
 
   components: { Field },
 
+  mounted() {
+    this.hydrateValuesWithModelByFieldName();
+  },
+
   data() {
     return {
-      values: this.model,
+      values: {},
     };
   },
 
   methods: {
+    hydrateValuesWithModelByFieldName() {
+      this.form.forEach((field) => {
+        if (field.name) {
+          let value = null;
+          value = getSetStringProp(this.model, field.name);
+
+          getSetStringProp(this.values, field.name, value);
+        }
+      });
+    },
+
     onSubmit() {
       this.$emit("submitted", this.context);
     },
