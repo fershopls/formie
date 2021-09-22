@@ -86,7 +86,12 @@ export default {
       console.log(ctx);
     };
 
-    return { onSubmit, form, model, errors };
+    return {
+      onSubmit,
+      form,
+      model,
+      errors,
+    };
   },
 };
 </script>
