@@ -17,6 +17,7 @@ export default {
 
   setup() {
     const form = [
+      // Client
       f(["client.name", "Cliente: Nombre"]),
       f(["client.lastname", "Cliente: Apellidos"]),
       f(["client.birth_date", "Cliente: Fecha de Nacimiento", "date"]),
@@ -24,6 +25,17 @@ export default {
       f(["client.city", "Cliente: Ciudad"]),
       f(["client.email", "Cliente: Correo Electrónico", "email"]),
       f(["client.phone", "Cliente: Teléfono", "phone"]),
+
+      // Goal
+      {
+        name: "antecedents",
+        label: "Antecedentes",
+        type: inputs.Textarea,
+        attrs: {
+          rows: 2,
+          placeholder: "Put your shit here",
+        },
+      },
 
       {
         type: inputs.Buttons,
