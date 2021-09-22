@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <input
-      class="p-3 rounded bg-transparent border border-gray-300 block w-full"
+      class="p-3 rounded bg-transparent border border-current	block w-full"
       :type="field.type"
       :value="value"
       v-bind="field.attrs"
