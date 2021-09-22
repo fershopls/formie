@@ -82,9 +82,9 @@ export default {
   computed: {
     context() {
       return {
-        values: this.values,
-        model: this.model,
         form: this.form,
+        model: this.model,
+        values: this.values,
         errors: this.errors,
         id: this.model && this.model.id ? this.model.id : null,
       };
