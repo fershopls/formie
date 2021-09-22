@@ -2,6 +2,7 @@ class Group {
   constructor(fields) {
     this.fields = fields;
     this._type = "div";
+    this._attrs = {};
 
     return this;
   }
@@ -17,17 +18,13 @@ class Group {
   }
 
   class(classNames) {
-    if (!this.attrs) {
-      this.attrs = {};
-    }
-
-    this.attrs.class = classNames;
+    this._attrs.class = classNames;
 
     return this;
   }
 
   attrs(attrs) {
-    this.attrs = attrs;
+    this._attrs = attrs;
 
     return this;
   }
