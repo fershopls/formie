@@ -20,12 +20,12 @@
     <template v-if="debug">
       <pre
         v-text="values"
-        class="mt-8 overflow-x-auto bg-gray-800 text-white p-4 rounded"
+        class="mt-8 text-xs overflow-x-auto bg-gray-800 text-white p-4 rounded"
       ></pre>
       <pre
         v-if="$props.errors"
         v-text="$props.errors"
-        class="mt-3 overflow-x-auto bg-red-800 text-white p-4 rounded"
+        class="mt-3 text-xs overflow-x-auto bg-red-800 text-white p-4 rounded"
       ></pre>
     </template>
 
